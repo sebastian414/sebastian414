@@ -8,38 +8,38 @@
 
 ## 👋 Who I am
 
-I spent **5 years on the factory floor** — first as a CNC operator running woodworking machines, then as a **production optimizer** automating and restructuring manufacturing workflows at a Slovak carpentry company.
+I spent **5 years on the factory floor** — CNC operator, then production process optimizer at a Slovak woodworking company. I automated scheduling, reduced material waste, and rebuilt how the shop floor communicated internally.
 
-That background changed how I think about software. I don't build demos. I build tools that need to work when a worker is standing at a machine with dirty hands, poor signal, and zero patience for bad UX.
+That background shapes everything I build. I optimize for workers with dirty hands, bad signal, and zero patience for slow UX.
 
-In parallel I taught myself AI engineering. Today I build **self-hosted, privacy-first AI products** for Slovak SMBs — companies that can't afford OpenAI subscriptions, need GDPR compliance, and want everything on their own server.
+In parallel I taught myself AI engineering. Today I build **self-hosted, privacy-first AI products** for Slovak SMBs — companies that need GDPR compliance, want data on their own server, and can't rely on cloud APIs going down.
 
 📍 Bratislava, Slovakia · 🕐 UTC+1 · 📩 masasisa91@gmail.com
+
+> *Repos marked `-demo` are public code samples — full products are private (commercial, client data). Each demo contains real extracted code and production screenshots.*
 
 ---
 
 ## 🧠 What I Build
 
-| Project | Description | Stack |
-|---------|------------|-------|
-| 🤖 **[NUMchat Business](https://github.com/sebastian414/NUMchat-business-demo)** | Self-hosted B2B AI knowledge base. Workers record what's happening by voice — AI classifies, stores, summarizes. All data on company server. | Qwen3-30B · MiniRAG · React Native |
-| 📱 **[Alena](https://github.com/sebastian414/alena-demo)** | Voice-first medication assistant for Slovak elderly users (65+). Designed for people who have never used a smartphone app. | React Native · Expo · expo-speech |
-| 🗺️ **[interaktivnamapa.sk](https://interaktivnamapa.sk)** | Live interactive map of 289 Slovak heritage sites. Quiz engine, XP gamification, community photo feed, real-time duel mode. | Mapbox GL · Supabase · PostGIS |
+| | Project | Status | Stack |
+|--|---------|--------|-------|
+| <img src="https://raw.githubusercontent.com/sebastian414/NUMchat-business-demo/main/docs/screenshots/01-home-voice.png" width="60" /> | **[NUMchat Business](https://github.com/sebastian414/NUMchat-business-demo)** — B2B AI knowledge base. Voice input, offline-first, GDPR. | 🔒 Private beta | Qwen3-30B · MiniRAG · RN |
+| <img src="https://raw.githubusercontent.com/sebastian414/alena-demo/main/docs/screenshots/01-home.png" width="60" /> | **[Alena](https://github.com/sebastian414/alena-demo)** — Medication assistant for Slovak elderly (65+), voice-first. | 🔒 UI complete, grant pending | React Native · Expo |
+| <img src="https://raw.githubusercontent.com/sebastian414/interaktivnamapa-demo/main/docs/screenshots/01-map-overview.png" width="60" /> | **[interaktivnamapa.sk](https://interaktivnamapa.sk)** — Live map, 289 landmarks, quiz, XP, community feed. | ✅ **Live in production** | Mapbox GL · Supabase · PostGIS |
 
 ---
 
-## 🐛 Recent Fixes Worth Mentioning
+## 🐛 Recent Fixes
 
-Real bugs from my projects — documented as engineering case studies.
+**[iOS keyboard overlaps chat input — iPhone 15 Pro](https://github.com/sebastian414/NUMchat-business-demo)**
+`KeyboardAvoidingView` height behavior miscalculates safe-area insets on iOS 17+ Dynamic Island. Migrated to `react-native-keyboard-controller` (native frame events, not screen size estimation).
 
-**[iOS keyboard overlaps chat input on iPhone 15 Pro](https://github.com/sebastian414/NUMchat-business-demo)**
-`KeyboardAvoidingView` with `behavior="height"` miscalculates safe-area insets on iOS 17+ Dynamic Island devices. Migrated to `react-native-keyboard-controller` which reads keyboard frame via native events instead of estimating from screen size.
+**[PostGIS pins offset ~50m after schema migration](https://github.com/sebastian414/interaktivnamapa-demo)**
+Coordinates stored without SRID after Supabase schema rebuild. Fixed via `ST_SetSRID(..., 4326)` in insert trigger + batch correction on all 289 rows.
 
-**[PostGIS landmark pins offset ~50m after schema migration](https://github.com/sebastian414/interaktivnamapa-demo)**
-Coordinates were stored without explicit SRID after Supabase schema rebuild. `ST_AsGeoJSON` returned shifted values. Fixed via `ST_SetSRID(..., 4326)` enforcement in insert trigger + batch correction on 289 existing rows.
-
-**[LLM conversation history bleeding across user sessions](https://github.com/sebastian414/NUMchat-business-demo)**
-llama.rn context buffer not cleared on PocketBase logout event. New user session inherited previous user's full conversation. Fixed by adding context clear in `pb.authStore.onChange` handler — privacy issue, not just a bug.
+**[LLM context bleeding across auth sessions](https://github.com/sebastian414/NUMchat-business-demo)**
+llama.rn context buffer not cleared on logout. New user inherited previous session's full conversation history. Fixed in `pb.authStore.onChange` handler — privacy issue.
 
 ---
 
@@ -71,7 +71,7 @@ llama.rn context buffer not cleared on PocketBase logout event. New user session
 
 ## 🎯 Active Focus
 
-**NUMchat Business** — private beta, piloting with Slovak SMBs in construction & manufacturing. Applying for SBA Inovuj grant (digital health track) for **Alena**.
+**NUMchat Business** in private beta with Slovak SMBs. One live production app: [interaktivnamapa.sk](https://interaktivnamapa.sk).
 
 ---
 
