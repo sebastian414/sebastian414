@@ -25,7 +25,7 @@ In parallel I taught myself AI engineering. Today I build **self-hosted, privacy
 | | Project | Status | Stack |
 |--|---------|--------|-------|
 | <img src="https://raw.githubusercontent.com/sebastian414/NUMchat-business-demo/main/docs/screenshots/01-home-voice.png" width="60" /> | **[NUMchat Business](https://github.com/sebastian414/NUMchat-business-demo)** — B2B AI knowledge base. Voice input, offline-first, GDPR. | 🔒 Private beta | Qwen3-30B · MiniRAG · RN |
-| <img src="https://raw.githubusercontent.com/sebastian414/alena-demo/main/docs/screenshots/01-home.png" width="60" /> | **[Alena](https://github.com/sebastian414/alena-demo)** — Medication assistant for Slovak elderly (65+), voice-first. | 🔒 UI complete, grant pending | React Native · Expo |
+| <img src="https://raw.githubusercontent.com/sebastian414/alena-demo/main/docs/screenshots/01-home.png" width="60" /> | **[Alena](https://github.com/sebastian414/alena-demo)** — Medication assistant for Slovak elderly (65+), voice-first. | 🔒 Private beta | React Native · Expo |
 | <img src="https://raw.githubusercontent.com/sebastian414/interaktivnamapa-demo/main/docs/screenshots/01-map-overview.png" width="60" /> | **[interaktivnamapa.sk](https://interaktivnamapa.sk)** — Live map, 289 landmarks, quiz, XP, community feed. | ✅ **Live in production** | Mapbox GL · Supabase · PostGIS |
 
 ---
